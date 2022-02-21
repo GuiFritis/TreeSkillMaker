@@ -2,6 +2,10 @@ $ = jQuery.noConflict();
 
 $(document).ready(function(){
 
+    $(".skill-descricao-text").each(function(id, elem){
+        inlineInit("#"+$(elem).attr("id"));
+    })
+
     $(".card-jogo").on("click", function(event){
         let id = $(event.delegateTarget).attr("data-id");
         document.location="index.php?page=classes&jogo="+id
@@ -51,6 +55,7 @@ $(document).ready(function(){
             });
             $(event.target).append(clone);
             $(clone).children(".skill-input").select().focus();
+            // inlineInit($(clone).find(".skill-descricao-text"));
             // $(clone).on("mouseenter", function(event){
             //     setTimeout(function(){
             //         $(event.delegateTarget).children(".skill-descricao").fadeIn();
@@ -61,10 +66,6 @@ $(document).ready(function(){
             // })
         }
     });
-
-    $(".skill-input, .skill-descricao-text").on("input", function(){
-        $("#btn-salvar").attr("data-alt", "1");
-    })
 
     $(".skill.original").draggable({
         handle: ".pin",
@@ -183,7 +184,6 @@ function salvaSkills(){
             dados.skills.push(obj_aux);
         })
     })
-    console.log(dados);
     $.ajax({
         url: "ajax/ajax_skill.php",
         method: "POST",
@@ -198,4 +198,26 @@ function salvaSkills(){
             console.log(erro);
         }
     });
+}
+
+function inlineInit(selector){
+    new inLine(selector, {
+        theme: 'dark',
+        toolbar: ['bold','italic','underline','orderedList','color','link'],
+        onChange: function(){
+            $("#btn-salvar").attr("data-alt", "1");
+        },
+        onToolbarOpen: function(api){
+            $(api.output).parent().css({
+                "opacity": "1",
+                "z-index": "1"
+            });
+        },
+        onToolbarClose: function(api){
+            $(api.output).parent().css({
+                "opacity": "",
+                "z-index": ""
+            });
+        },
+    })
 }

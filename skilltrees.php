@@ -58,7 +58,7 @@ if(count($skilltrees) > 0){?>
                                         <input type="hidden" class="skill-type" value="<?=$skill['forma']?>"/>
                                         <textarea class="skill-input"><?=$skill['nome']?></textarea>
                                         <div class="skill-descricao">
-                                            <textarea class="skill-descricao-text"><?=$skill['descricao']?></textarea>
+                                            <textarea class="skill-descricao-text" id="descricao-<?=$skill['id']?>"><?=$skill['descricao']?></textarea>
                                         </div>
                                     </div>
                                 <?php } 
@@ -91,7 +91,7 @@ if(count($skilltrees) > 0){?>
             <input type="hidden" class="id_skill" value=""/>
             <textarea class="skill-input">NEW</textarea>
             <div class="skill-descricao">
-                <textarea class="skill-descricao-text">Nada aqui por enquanto</textarea>
+                <textarea class="skill-descricao-text" id="descricao-circulo">Nada aqui por enquanto</textarea>
             </div>
         </div>
         <div class="quadrado skill original">
@@ -100,7 +100,7 @@ if(count($skilltrees) > 0){?>
             <input type="hidden" class="id_skill" value=""/>
             <textarea class="skill-input">NEW</textarea>
             <div class="skill-descricao">
-                <textarea class="skill-descricao-text">Nada aqui por enquanto</textarea>
+                <textarea class="skill-descricao-text" id="descricao-quadrado">Nada aqui por enquanto</textarea>
             </div>
         </div>
         <div class="redondo skill original">
@@ -109,7 +109,7 @@ if(count($skilltrees) > 0){?>
             <input type="hidden" class="id_skill" value=""/>
             <textarea class="skill-input">NEW</textarea>
             <div class="skill-descricao">
-                <textarea class="skill-descricao-text">Nada aqui por enquanto</textarea>
+                <textarea class="skill-descricao-text" id="descricao-redondo">Nada aqui por enquanto</textarea>
             </div>
         </div>
     </div>
