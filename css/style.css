@@ -1,0 +1,166 @@
+body{
+    background-color: #bac8d4 !important;
+    padding: 20px;
+    margin-bottom: 100px !important;
+}
+
+.credits-footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    font-weight: bold;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+.grid-jogos, .grid-classes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-content: center;
+}
+
+.card-jogo, .card-classe{
+    max-width: 400px;
+}
+
+.card-jogo:hover, .card-classe:hover{
+    transform: scale(1.05);
+}
+
+.card-header{
+    font-weight: bold;
+}
+
+.texto-branco>.card-header{
+    color: #FFFFFF;
+}
+
+.grid-skills{
+    display: grid;
+    min-height: 100px;
+    gap: 20px;
+    width: 100%;
+}
+
+.skill-space{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 5px;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    min-height: 50px;
+    border: 1px dashed #00000033;
+    padding: 5px;
+}
+
+.skill-space>.skill:nth-child(2n+1):last-child{
+    grid-column: 1/3;
+}
+
+.droppable-active{
+    background-color: #0000001F;
+}
+
+.droppable-hover{
+    background-color: #00000033;
+}
+
+.skill-menu{
+    background-color: #00000033;
+    border-radius: 5px;
+    border: 3px solid #000000AA;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+}
+
+.skill-menu>.skill{
+    max-height: 70px;
+    margin: 5px 10px;
+}
+
+.skill-menu>.skill>.skill-input{
+    max-height: 40px;
+}
+
+.skill{
+    position: relative;
+    min-height: 30px;
+    min-width: 50px;    
+    width: 130px;
+    text-align: center;
+    border: 3px solid #00000055;
+    background-color: #FFFFFF;
+}
+
+.quadrado{    
+    padding: 5px 0px;
+    border-radius: 0px;
+}
+
+.circulo{    
+    padding: 5px 15px;
+    border-radius: 50%;
+}
+
+.redondo{    
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.pin{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -5px;
+    right: 5%;
+}
+
+.skill-input{
+    border: none;
+    max-width: 100px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.skill-input:is(:active, :focus-visible){
+    border: none !important;
+}
+
+.skill:not(.original):hover>.skill-descricao, .skill-descricao:hover{
+    z-index: 1;
+    opacity: 1;
+    transition: 0.3s 0.2s;
+}
+
+.skill-descricao{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    right: -140%;
+    top: 20px;
+    border: 3px solid #00000033;
+    border-radius: 10px;
+    background-color: #bac8d4;
+    transition: 0.3s 0.1s;
+}
+
+.skill-descricao-text{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+#btn-salvar{
+    position: fixed;
+    left: 20px;
+    bottom: 30px;
+}
