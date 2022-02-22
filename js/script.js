@@ -191,7 +191,7 @@ function salvaSkills(){
         success: function(retorno){
             console.log(retorno)
             alert("Alterações salvar com sucesso!");
-            // window.location.reload();
+            window.location.reload();
         },
         erro: function(erro){
             alert("Ocorreu algum erro!");
@@ -204,6 +204,7 @@ function inlineInit(selector){
     new inLine(selector, {
         theme: 'dark',
         toolbar: ['bold','italic','underline','orderedList','color','link'],
+        colors: ["#DD5500", "#440077", "#3388DD", "#FF33CC", "#FFDD00", "#FFFFFF", "#B3B3B3", "#AA0000", "#00CC33"],
         onChange: function(){
             $("#btn-salvar").attr("data-alt", "1");
         },
