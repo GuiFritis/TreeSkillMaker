@@ -9,7 +9,7 @@ foreach($_REQUEST as $key => $value){
     $$key = $value;
 }
 
-if($action = "insert"){
+if($action == "insert"){
     $sql = "INSERT INTO skilltree_row
                 (nivel,
                 requirements,
@@ -30,9 +30,10 @@ if($action = "insert"){
 
     echo $id;
 
-} else if($action = "remove" && !empty($id)){
+} else if($action == "remove" && !empty($nivel)){
     $sql = "DELETE FROM skilltree_row
-            WHERE id = '{$id}'";
+            WHERE nivel = '{$nivel}'
+                AND id_skilltree = '{$id_skilltree}'";
 
     db_query($sql);
 }

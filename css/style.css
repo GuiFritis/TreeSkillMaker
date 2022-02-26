@@ -4,8 +4,54 @@ body{
     margin-bottom: 100px !important;
 }
 
+header.header{
+    margin: -20px -20px 30px -20px;
+    display: flex;
+    height: 100px;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.titulo-page{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-page>*:is(h1, h2){
+    width: fit-content;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.titulo-jogos{
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.titulo-classes{
+    background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.titulo-skilltrees{
+    background: #360033;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .card-body{
     background-color: #FFFFFF66 !important;
+}
+
+.tab-content{
+    background-color: #FFFFFF;
 }
 
 .credits-footer{
@@ -21,7 +67,7 @@ body{
 
 .grid-jogos, .grid-classes{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     gap: 20px;
     align-content: center;
 }
@@ -40,6 +86,14 @@ body{
 
 .texto-branco>.card-header{
     color: #FFFFFF;
+}
+
+.texto-branco>.card-header>a{
+    color: #FFFFFF;
+}
+
+.texto-branco>.card-header>a:hover{
+    color: #FFFFFFAA;
 }
 
 .grid-skills{
@@ -123,8 +177,15 @@ body{
     height: 20px;
     width: 20px;
     position: absolute;
-    top: -5px;
+    top: -10px;
     right: 5%;
+}
+
+.delete-skill{
+    position: absolute;
+    top: -10px;
+    left: 5%;
+    cursor: pointer;
 }
 
 .skill-input{

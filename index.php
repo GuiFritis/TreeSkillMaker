@@ -1,8 +1,8 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors',1);
+// error_reporting(E_ALL);
+// ini_set('error_reporting', E_ALL);
+// ini_set('display_errors',1);
 
 include_once("connect_db.php");
 foreach($_REQUEST as $key => $value){
@@ -21,6 +21,7 @@ if(empty($page)){
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -29,8 +30,13 @@ if(empty($page)){
     <title>Tree Skills</title>
 </head>
 <body>
+    <header class="header" <?php include("random_gradient.php"); ?>>
+        <h1>Tree Skill Maker</h1>
+    </header>
     <a href="index.php?page=jogos" class="btn btn-primary">Home</a>
+    
     <?php include_once($page.".php");?>
+    
     <footer class="credits-footer">
         Created by Guilherme Carvalho Fritis
     </footer>

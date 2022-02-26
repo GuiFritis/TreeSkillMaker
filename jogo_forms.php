@@ -6,8 +6,11 @@ if(!empty($id)){
     $jogo = array();
 }
 ?>
+<a href="index.php?page=jogos" class="btn btn-primary"><span class="bi bi-reply"></span> Voltar</a>
 
-<h2 class="text-center">Jogo</h2>
+<div class="titulo-page">
+    <h2 class="text-center titulo-jogos">Jogo</h2>
+</div>
 <form action="index.php" method="POST">
     <input type="hidden" name="page" value="submit">
     <input type="hidden" name="action" value="jogo">
@@ -15,19 +18,19 @@ if(!empty($id)){
     <div class="row">
         <div class="col-12 form-group">
             <label for="" class="control-label">Nome</label>
-            <input type="text" class="form-control" name="nome"/>
+            <input type="text" class="form-control" name="nome" value="<?=!empty($jogo['nome'])?$jogo['nome']:NULL?>"/>
         </div>
     </div>
     <div class="row">
         <div class="col-12 form-group">
             <label for="" class="control-label">Descrição</label>
-            <textarea name="descricao" rows="10" class="form-control"></textarea>
+            <textarea name="descricao" rows="10" class="form-control"><?=!empty($jogo['descricao'])?$jogo['descricao']:NULL?></textarea>
         </div>
     </div>
     <div class="row">
         <div class="col-12 form-group">
             <button type="submit" class="btn btn-primary">
-                Enviar
+                <span class="bi bi-send-fill"></span> Enviar
             </button>
         </div>
     </div>

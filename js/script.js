@@ -2,7 +2,7 @@ $ = jQuery.noConflict();
 
 $(document).ready(function(){
 
-    $(".skill-descricao-text").each(function(id, elem){
+    $(".skill:not(.original) .skill-descricao-text").each(function(id, elem){
         inlineInit("#"+$(elem).attr("id"));
     })
 
@@ -55,7 +55,9 @@ $(document).ready(function(){
             });
             $(event.target).append(clone);
             $(clone).children(".skill-input").select().focus();
-            // inlineInit($(clone).find(".skill-descricao-text"));
+            let cont = $(".skill").length;
+            $(clone).find(".skill-descricao-text").attr("id", "descricao-"+cont+"-n");
+            inlineInit("#"+$(clone).find(".skill-descricao-text").attr("id"));
             // $(clone).on("mouseenter", function(event){
             //     setTimeout(function(){
             //         $(event.delegateTarget).children(".skill-descricao").fadeIn();
@@ -104,7 +106,8 @@ $(document).ready(function(){
             data: {
                 "nivel": row+1,
                 "requirements": "",
-                "id_skilltree": id_skilltree
+                "id_skilltree": id_skilltree,
+                "action": "insert"
             }, 
             success: function(retorno){                
                 for(let i = 1; i <= colunas; i++){
@@ -131,14 +134,21 @@ $(document).ready(function(){
         let num_rows = Number($(btn).siblings(".last-row").val());
         let verify = true;
         if(num_rows > 1){
-            $(".skill-space[data-row="+(row)+"]").each(function(id, elem){
-                if($(elem).html() != ""){
-                    verify = false;
-                }
-            })
+            if($(".skill-space[data-row="+(row)+"]>.skill").length > 0){
+                verify = false;
+            }
             if(verify){
                 $(".skill-space[data-row="+row+"]").remove();
                 $(btn).siblings(".last-row").val(num_rows-1);
+                $.ajax({
+                    url: "ajax/ajax_row.php",
+                    method: "POST",
+                    data: {
+                        "nivel": row,
+                        "id_skilltree": id_skilltree,
+                        "action": "remove"
+                    },
+                })  
             } else {
                 alert("Existem skills nessa linha!");
             }
@@ -147,7 +157,16 @@ $(document).ready(function(){
         }
     })
 
-
+    $(".delete-skill").on("click", function(event){
+        $(event.delegateTarget).parent().remove();
+        $.ajax({
+            url: "ajax/ajax_delete_skill.php",
+            method: "POST",
+            data: {
+                id: $(event.delegateTarget).attr("data-id")
+            }
+        })
+    })
 
 })
 
@@ -189,7 +208,6 @@ function salvaSkills(){
         method: "POST",
         data: dados,
         success: function(retorno){
-            console.log(retorno)
             alert("Alterações salvar com sucesso!");
             window.location.reload();
         },
@@ -204,7 +222,7 @@ function inlineInit(selector){
     new inLine(selector, {
         theme: 'dark',
         toolbar: ['bold','italic','underline','orderedList','color','link'],
-        colors: ["#DD5500", "#440077", "#3388DD", "#FF33CC", "#FFDD00", "#FFFFFF", "#B3B3B3", "#AA0000", "#00CC33"],
+        colors: ["#DD5500", "#7A00CC", "#3388DD", "#FF33CC", "#FFDD00", "#FFFFFF", "#B3B3B3", "#AA0000", "#00CC33"],
         onChange: function(){
             $("#btn-salvar").attr("data-alt", "1");
         },
