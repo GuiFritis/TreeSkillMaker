@@ -113,7 +113,7 @@ $(document).ready(function(){
                 for(let i = 1; i <= colunas; i++){
                     let clone = $(skillSpace).clone();
                     $(clone).attr("data-row", retorno).attr("data-col", i).html("");
-                    $(cardSkill).append(clone);
+                    $(cardSkill).children(".grid-skills").append(clone);
                 }
                 $(btn).siblings(".last-row").val(row + 1); 
                 $(btn).prop("disabled", false);       
