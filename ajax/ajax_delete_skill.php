@@ -3,9 +3,11 @@
 include_once("../functions.php");
 include_once("../connect_db.php");
 
-$_REQUEST = utf8_converter($_REQUEST);
+$array_request = utf8_converter($_REQUEST);
 
-foreach($_REQUEST as $key => $value){
+$array_request = recursiveAddSlashes($array_request);
+
+foreach ($array_request as $key => $value) {
     $$key = $value;
 }
 

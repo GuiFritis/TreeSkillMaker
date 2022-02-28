@@ -29,48 +29,6 @@ $(document).ready(function(){
 
     bindSortable();
 
-    // $(".skill-space").droppable({
-    //     classes: {
-    //         "ui-droppable-active": "droppable-active",
-    //         "ui-droppable-hover": "droppable-hover"
-    //     },
-    //     tolerance: "pointer",
-    //     drop: function(event, ui){
-    //         $("#btn-salvar").attr("data-alt", "1");
-    //         let clone;
-    //         if(ui.helper.is(".original")){
-    //             clone = ui.helper.clone();
-    //             $(clone).removeClass("original");
-    //             $(clone).draggable({  
-    //                 handle: ".pin", 
-    //                 helper: "original",             
-    //                 revert: "invalid",
-    //                 cursorAt: {top: -5}
-    //             });
-    //         } else {
-    //             clone = ui.helper;
-    //         }
-    //         $(clone).css({
-    //             position: 'relative',
-    //             top: '',
-    //             left: ''
-    //         });
-    //         $(event.target).append(clone);
-    //         $(clone).children(".skill-input").select().focus();
-    //         let cont = $(".skill").length;
-    //         $(clone).find(".skill-descricao-text").attr("id", "descricao-"+cont+"-n");
-    //         inlineInit("#"+$(clone).find(".skill-descricao-text").attr("id"));
-    //         // $(clone).on("mouseenter", function(event){
-    //         //     setTimeout(function(){
-    //         //         $(event.delegateTarget).children(".skill-descricao").fadeIn();
-    //         //     }, 500);
-    //         // })
-    //         // $(clone).on("mouseleave", function(event){
-    //         //     $(event.delegateTarget).children(".skill-descricao").fadeOut();
-    //         // })
-    //     }
-    // });
-
     $(".skill.original").draggable({
         connectToSortable: ".skilltree-row",
         handle: ".pin",
@@ -78,14 +36,6 @@ $(document).ready(function(){
         revert: "invalid",
         cursorAt: {top: -5},
     });
-
-    // $(".skill:not(.original)").draggable({  
-    //     connectToSortable: ".skilltree-row",
-    //     handle: ".pin", 
-    //     helper: "original",             
-    //     revert: "invalid",
-    //     cursorAt: {top: -5}
-    // })
 
     $("#btn-salvar").on("click", function(){
         if($(this).attr("data-alt") != ""){
@@ -294,6 +244,9 @@ function bindSortable(){
                 $(ui.helper).find(".skill-descricao-text").attr("id", "descricao-"+cont+"-n");
                 inlineInit("#"+$(ui.helper).find(".skill-descricao-text").attr("id"));      
             }
+        },
+        update: function(event, ui){
+            $("#btn-salvar").attr("data-alt", "1");
         },
         cursorAt: {top: -5},
         tolerance: "pointer"

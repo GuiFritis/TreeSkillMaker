@@ -5,6 +5,7 @@
 // ini_set('display_errors',1);
 
 include_once("connect_db.php");
+include_once("functions.php");
 foreach($_REQUEST as $key => $value){
     $$key = $value;
 }

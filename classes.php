@@ -13,10 +13,10 @@ $classes = db_selectMany($sql);
 if(count($classes) > 0){?>
     <div class="grid-classes">
     <?php foreach($classes as $value){?>
-        <div class="card card-classe <?=$value['texto']==1?"texto-branco":NULL?>" data-search="<?=strtoupper($value['nome'])?>" data-id="<?=$value['id']?>" style="border-color: #<?=$value['cor']?>">
+        <div class="card card-classe <?=$value['texto']==1?"texto-branco":"texto-preto"?>" data-search="<?=strtoupper($value['nome'])?>" data-id="<?=$value['id']?>" style="border-color: #<?=$value['cor']?>">
             <div class="card-header" style="background-color: #<?=$value['cor']?>">
                 <span><?=$value['nome']?></span>
-                <a href="index.php?page=classe_forms&id=<?=$value['id']?>" class="float-right"><span class="bi bi-pencil-square"></span></a>
+                <a href="index.php?page=classe_forms&jogo=<?=$value['id_jogo']?>&id=<?=$value['id']?>" class="float-right"><span class="bi bi-pencil-square"></span></a>
             </div>
             <div class="card-body"><?=$value['descricao']?></div>
         </div>

@@ -3,9 +3,11 @@
 include_once("../functions.php");
 include_once("../connect_db.php");
 
-$_REQUEST = utf8_converter($_REQUEST);
+$array_request = utf8_converter($_REQUEST);
 
-foreach($_REQUEST as $key => $value){
+$array_request = recursiveAddSlashes($array_request);
+
+foreach ($array_request as $key => $value) {
     $$key = $value;
 }
 
@@ -35,7 +37,7 @@ foreach($skills as $value){
         $sql = "UPDATE skill SET
                     nome = '{$value['nome']}', 
                     descricao = '{$value['descricao']}',
-                    ordem = '{$value['coluna']}', 
+                    ordem = '{$value['ordem']}', 
                     forma = '{$value['forma']}', 
                     id_row = '{$value['row']}', 
                     id_skilltree = '{$value['skilltree']}'

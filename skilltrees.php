@@ -37,9 +37,9 @@ if(count($skilltrees) > 0){?>
             <div class="card card-skilltree" data-id="<?=$value['id']?>">
                 <div class="card-header text-center">
                     <?=$value['nome']?> 
-                    <a href="index.php?page=skilltree_forms&id=<?=$value['id']?>"><span class="bi bi-pencil-square"></span></a>
+                    <a href="index.php?page=skilltree_forms&classe=<?=$value['id_classe']?>&id=<?=$value['id']?>"><span class="bi bi-pencil-square"></span></a>
                     <br/>
-                    <small><?=$value['descricao']?></small>
+                    <small class="small-description"><?=$value['descricao']?></small>
                 </div>
                 <div class="card-body grid-skills" style="grid-template-columns: repeat(<?=$value['colunas']?>, 1fr);">
                     <?php $sql = "SELECT * 

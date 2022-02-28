@@ -1,8 +1,15 @@
 
 <h2>Processando...</h2>
+<span>Isso não deve demorar mais que alguns segundos.</span>
+
 
 <?php
-$redirect = "jogos";
+$array_request = recursiveAddSlashes($_REQUEST);
+
+foreach ($array_request as $key => $value) {
+    $$key = $value;
+}
+
 switch($action){
     case "jogo":
         if(empty($id)){
@@ -91,6 +98,9 @@ switch($action){
             $redirect = "skilltrees&classe=".$id_classe;
         }
         break;
+}
+if(empty($redirect)){
+    $redirect = "jogos";
 }
 ?>
 <script>
