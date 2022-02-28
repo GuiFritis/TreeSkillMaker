@@ -70,10 +70,12 @@ header.header{
     grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     gap: 20px;
     align-content: center;
+    justify-items: center;
 }
 
 .card-jogo, .card-classe{
     max-width: 400px;
+    width: 100%;
 }
 
 .card-jogo:hover, .card-classe:hover{
@@ -97,34 +99,26 @@ header.header{
 }
 
 .grid-skills{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     min-height: 100px;
     gap: 20px;
     width: 100%;
 }
 
-.skill-space{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 5px;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    min-height: 50px;
-    border: 1px dashed #00000033;
-    padding: 5px;
+.skilltree-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px dashed #00000022;
+    min-height: 100px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
-.skill-space>.skill:nth-child(2n+1):last-child{
-    grid-column: 1/3;
-}
-
-.droppable-active{
-    background-color: #0000001F;
-}
-
-.droppable-hover{
-    background-color: #00000033;
+.sortable-placeholder{
+    width: 130px;
+    border: 2px solid #00000066;
 }
 
 .skill-menu{
@@ -203,6 +197,10 @@ header.header{
     z-index: 1;
     opacity: 1;
     transition: 0.3s 0.2s;
+}
+
+.skill:last-child > .skill-descricao{
+    transform: translateX(calc(-100% - 130px));
 }
 
 .skill-descricao{

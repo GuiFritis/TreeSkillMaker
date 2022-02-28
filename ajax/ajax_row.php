@@ -30,9 +30,9 @@ if($action == "insert"){
 
     echo $id;
 
-} else if($action == "remove" && !empty($nivel)){
+} else if($action == "remove" && !empty($id)){
     $sql = "DELETE FROM skilltree_row
-            WHERE nivel = '{$nivel}'
+            WHERE id = '{$id}'
                 AND id_skilltree = '{$id_skilltree}'";
 
     db_query($sql);

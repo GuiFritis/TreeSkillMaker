@@ -18,14 +18,14 @@ foreach($skills as $value){
         $sql = "INSERT INTO skill
                     (nome, 
                     descricao, 
-                    coluna, 
+                    ordem, 
                     forma, 
                     id_row, 
                     id_skilltree)
                 VALUES
                     ('{$value['nome']}', 
                     '{$value['descricao']}', 
-                    '{$value['coluna']}', 
+                    '{$value['ordem']}', 
                     '{$value['forma']}', 
                     '{$value['row']}', 
                     '{$value['skilltree']}')";
@@ -35,7 +35,7 @@ foreach($skills as $value){
         $sql = "UPDATE skill SET
                     nome = '{$value['nome']}', 
                     descricao = '{$value['descricao']}',
-                    coluna = '{$value['coluna']}', 
+                    ordem = '{$value['coluna']}', 
                     forma = '{$value['forma']}', 
                     id_row = '{$value['row']}', 
                     id_skilltree = '{$value['skilltree']}'

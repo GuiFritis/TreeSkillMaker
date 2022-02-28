@@ -25,7 +25,7 @@ if(!empty($id)){
     </div>
     <div class="row">
         <div class="col-12 form-group">
-            <label for="" class="control-label">Colunas</label>
+            <label for="" class="control-label">Skills por linha</label>
             <input type="number" class="form-control" name="colunas" min="1" max="10" value="<?=!empty($skilltree['colunas'])?$skilltree['colunas']:1?>" />
         </div>
     </div>
