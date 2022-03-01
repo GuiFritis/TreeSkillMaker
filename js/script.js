@@ -37,9 +37,14 @@ $(document).ready(function(){
         cursorAt: {top: -5},
     });
 
+    setInterval(function(){
+        salvaSkills();
+    }, (1000*60*5))
+
     $("#btn-salvar").on("click", function(){
         if($(this).attr("data-alt") != ""){
             salvaSkills();
+            window.location.reload();
         } else {
             toast("Sem alterações registradas!", "info");
         }
@@ -170,7 +175,6 @@ function salvaSkills(){
         data: dados,
         success: function(retorno){
             toast("Alterações salvar com sucesso!", "success");
-            window.location.reload();
         },
         erro: function(erro){
             toast("Ocorreu algum erro!", "error");
